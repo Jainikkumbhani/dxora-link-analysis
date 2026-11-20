@@ -1,0 +1,466 @@
+{
+    "success": true,
+    "website": "https://www.havmor.com/",
+    "brand": {
+        "name": "Havmor",
+        "category": "Ice Cream Brand & Manufacturer",
+        "summary": "Established in 1944 and part of LOTTE Wellfood Co. Ltd., Havmor is a leading Indian ice cream brand offering over 150 products across a vast retail network of 72,000 outlets and flagship stores."
+    },
+    "analysis": {
+        "competitor_analysis": {
+            "brand_name": "Havmor",
+            "brand_overview": "Havmor Ice Cream is an iconic Indian brand producing millions of units daily, offering traditional kulfis, modern flavors, cakes, and tubs, backed by Lotte Group.",
+            "business_category": "Ice Cream and Desserts Manufacturer",
+            "main_products_services": [
+                "Ice Cream Tubs",
+                "Ice Cream Cones",
+                "Ice Candies and Pops",
+                "Ice Cream Cakes",
+                "Party Orders and Catering"
+            ],
+            "brand_target_market": "Mass consumer market, families, event planners, and hospitality institutions across India.",
+            "brand_key_strength": "Extensive retail footprint spanning multiple states, 10 consecutive Times Food Awards, and backing by LOTTE Wellfood.",
+            "competitors": [
+                {
+                    "name": "Amul",
+                    "website": "https://amul.com/",
+                    "main_service": "Dairy and Ice Cream Manufacturing",
+                    "target_market": "Mass market consumers across India",
+                    "strengths": [
+                        "Massive nationwide distribution",
+                        "Strong brand loyalty",
+                        "Competitive pricing"
+                    ],
+                    "weaknesses_or_gaps": [
+                        "Less focus on premium international dessert variants compared to specialty players"
+                    ],
+                    "confidence": "high",
+                    "source": "ai_suggestion"
+                },
+                {
+                    "name": "Vadilal",
+                    "website": "https://vadilalicecreams.com/",
+                    "main_service": "Ice Cream and Frozen Desserts",
+                    "target_market": "Indian households and retail consumers",
+                    "strengths": [
+                        "Deep heritage in the Indian market",
+                        "Wide variety of traditional and modern flavors"
+                    ],
+                    "weaknesses_or_gaps": [
+                        "Lower international corporate backing compared to Lotte-owned brands"
+                    ],
+                    "confidence": "high",
+                    "source": "ai_suggestion"
+                },
+                {
+                    "name": "Kwality Wall's",
+                    "website": "https://www.kwalitywalls.in/",
+                    "main_service": "Ice Cream and Frozen Confectionery",
+                    "target_market": "Youth, families, and urban consumers",
+                    "strengths": [
+                        "Global Unilever backing",
+                        "Strong presence in impulse-purchase retail freezers"
+                    ],
+                    "weaknesses_or_gaps": [
+                        "Perceived by some as mass-produced rather than traditional"
+                    ],
+                    "confidence": "high",
+                    "source": "ai_suggestion"
+                }
+            ],
+            "strengths": [
+                "Heritage dating back to 1944 with strong consumer trust",
+                "Diverse product portfolio of over 150 items including traditional kulfis and premium cakes",
+                "Strong institutional client base including top-tier hotels and educational institutes"
+            ],
+            "opportunities": [
+                "Expand digital direct-to-consumer delivery infrastructure",
+                "Grow flagship store presence into unrepresented states",
+                "Leverage Lotte synergies for cross-border flavor innovations"
+            ],
+            "comparison_table": [
+                {
+                    "competitor_name": "Amul",
+                    "rows": [
+                        {
+                            "comparison": "Brand Name",
+                            "your_brand": "Havmor",
+                            "competitor": "Amul"
+                        },
+                        {
+                            "comparison": "Main Service",
+                            "your_brand": "Ice Cream Tubs",
+                            "competitor": "Dairy and Ice Cream Manufacturing"
+                        },
+                        {
+                            "comparison": "Target Market",
+                            "your_brand": "Mass consumer market, families, event planners, and hospitality institutions across India.",
+                            "competitor": "Mass market consumers across India"
+                        },
+                        {
+                            "comparison": "Key Strength",
+                            "your_brand": "Extensive retail footprint spanning multiple states, 10 consecutive Times Food Awards, and backing by LOTTE Wellfood.",
+                            "competitor": "Massive nationwide distribution"
+                        },
+                        {
+                            "comparison": "Opportunity / Gap",
+                            "your_brand": "Expand digital direct-to-consumer delivery infrastructure",
+                            "competitor": "Less focus on premium international dessert variants compared to specialty players"
+                        }
+                    ]
+                },
+                {
+                    "competitor_name": "Vadilal",
+                    "rows": [
+                        {
+                            "comparison": "Brand Name",
+                            "your_brand": "Havmor",
+                            "competitor": "Vadilal"
+                        },
+                        {
+                            "comparison": "Main Service",
+                            "your_brand": "Ice Cream Tubs",
+                            "competitor": "Ice Cream and Frozen Desserts"
+                        },
+                        {
+                            "comparison": "Target Market",
+                            "your_brand": "Mass consumer market, families, event planners, and hospitality institutions across India.",
+                            "competitor": "Indian households and retail consumers"
+                        },
+                        {
+                            "comparison": "Key Strength",
+                            "your_brand": "Extensive retail footprint spanning multiple states, 10 consecutive Times Food Awards, and backing by LOTTE Wellfood.",
+                            "competitor": "Deep heritage in the Indian market"
+                        },
+                        {
+                            "comparison": "Opportunity / Gap",
+                            "your_brand": "Expand digital direct-to-consumer delivery infrastructure",
+                            "competitor": "Lower international corporate backing compared to Lotte-owned brands"
+                        }
+                    ]
+                },
+                {
+                    "competitor_name": "Kwality Wall's",
+                    "rows": [
+                        {
+                            "comparison": "Brand Name",
+                            "your_brand": "Havmor",
+                            "competitor": "Kwality Wall's"
+                        },
+                        {
+                            "comparison": "Main Service",
+                            "your_brand": "Ice Cream Tubs",
+                            "competitor": "Ice Cream and Frozen Confectionery"
+                        },
+                        {
+                            "comparison": "Target Market",
+                            "your_brand": "Mass consumer market, families, event planners, and hospitality institutions across India.",
+                            "competitor": "Youth, families, and urban consumers"
+                        },
+                        {
+                            "comparison": "Key Strength",
+                            "your_brand": "Extensive retail footprint spanning multiple states, 10 consecutive Times Food Awards, and backing by LOTTE Wellfood.",
+                            "competitor": "Global Unilever backing"
+                        },
+                        {
+                            "comparison": "Opportunity / Gap",
+                            "your_brand": "Expand digital direct-to-consumer delivery infrastructure",
+                            "competitor": "Perceived by some as mass-produced rather than traditional"
+                        }
+                    ]
+                }
+            ]
+        },
+        "target_search_queries": [
+            {
+                "query": "best ice cream brands in India",
+                "platforms": [
+                    "Google",
+                    "Facebook"
+                ],
+                "intent": "Service Search",
+                "business_relevance": "Captures users looking for top-tier ice cream options where Havmor is a prominent player.",
+                "target_audience": "Ice cream lovers and families"
+            },
+            {
+                "query": "Havmor ice cream party order online",
+                "platforms": [
+                    "Google",
+                    "Instagram"
+                ],
+                "intent": "Transactional Search",
+                "business_relevance": "Directly targets customers wanting to book party orders for events and celebrations.",
+                "target_audience": "Event planners and hosts"
+            },
+            {
+                "query": "buy ice cream cake flavors near me",
+                "platforms": [
+                    "Instagram",
+                    "Facebook"
+                ],
+                "intent": "Local Search",
+                "business_relevance": "Drives foot traffic to local retail outlets and flagship stores.",
+                "target_audience": "Dessert enthusiasts"
+            },
+            {
+                "query": "Havmor ice cream franchise opportunity",
+                "platforms": [
+                    "LinkedIn",
+                    "Google"
+                ],
+                "intent": "B2B Search",
+                "business_relevance": "Attracts potential franchise partners looking to collaborate with the brand.",
+                "target_audience": "Business investors and entrepreneurs"
+            },
+            {
+                "query": "new ice cream flavors launched by Havmor",
+                "platforms": [
+                    "X",
+                    "Instagram"
+                ],
+                "intent": "Informational Search",
+                "business_relevance": "Engages brand followers with the latest product drops and innovations.",
+                "target_audience": "Loyal consumers and youth"
+            }
+        ],
+        "seo_improvements": {
+            "primary_keyword": "Havmor ice cream",
+            "secondary_keywords": [
+                "ice cream flavors",
+                "ice cream cake",
+                "party order ice cream",
+                "best ice cream brand"
+            ],
+            "long_tail_keywords": [
+                "buy Havmor ice cream online",
+                "Havmor ice cream party orders",
+                "traditional kulfi falooda ice cream"
+            ],
+            "business_keywords": [
+                "ice cream",
+                "desserts",
+                "kulfi",
+                "sundae",
+                "flavors"
+            ],
+            "recommended_title": "Havmor Ice Cream | Delicious Flavours & Party Orders",
+            "title_primary_keyword": "Havmor ice cream",
+            "title_structure": "Primary Keyword | Brand Description",
+            "meta_description": "Discover delicious ice cream flavours, cakes, and party orders from Havmor. Established in 1944, now part of Lotte. Find a store near you today!",
+            "meta_summary": "Havmor offers a wide range of delicious ice cream products, traditional kulfis, and party orders across India.",
+            "meta_keywords": [
+                "Havmor",
+                "ice cream",
+                "flavors",
+                "party order",
+                "kulfi"
+            ],
+            "supporting_content": [
+                {
+                    "content_type": "Service landing page",
+                    "title": "Ice Cream Party Orders & Catering",
+                    "description": "Book bulk ice cream and custom orders for weddings, birthdays, and anniversaries.",
+                    "target_keyword": "party order ice cream"
+                },
+                {
+                    "content_type": "Industry-specific page",
+                    "title": "Institutional & Hotel Partnerships",
+                    "description": "Discover our supply partnerships with leading hotels, restaurants, and institutions.",
+                    "target_keyword": "institutional ice cream supply"
+                },
+                {
+                    "content_type": "FAQ",
+                    "title": "Frequently Asked Questions",
+                    "description": "Get answers about our products, nutritional info, franchise opportunities, and store locations.",
+                    "target_keyword": "Havmor FAQ"
+                },
+                {
+                    "content_type": "Blog topic",
+                    "title": "Top 10 Ice Cream Flavours to Try This Summer",
+                    "description": "Explore our best-selling tubs, cones, and seasonal fruit ranges.",
+                    "target_keyword": "best ice cream flavors"
+                },
+                {
+                    "content_type": "Location-based landing page",
+                    "title": "Find Havmor Stores Near You",
+                    "description": "Locate our 72,000+ retail outlets and flagship parlours across India.",
+                    "target_keyword": "Havmor store locator"
+                },
+                {
+                    "content_type": "Supporting business article",
+                    "title": "Our Journey Since 1944: The Havmor Legacy",
+                    "description": "Learn how a modest beginning evolved into a beloved national brand under Lotte.",
+                    "target_keyword": "Havmor history"
+                }
+            ],
+            "issues_found": [
+                "Homepage has 0 H1 headings, impacting structural SEO hierarchy.",
+                "Current homepage title is too short ('| Havmor') and lacks descriptive keywords.",
+                "Meta description exceeds optimal length limits."
+            ],
+            "current_title": "| Havmor",
+            "current_meta_description": "Established in the year 1944 and now a part of LOTTE Wellfood Co. Ltd., Havmor has grown to be loved by all. But how did we do it? Well! We are present in every nook and corner around the nation with 72,000 retail outlets and over 200 flagship stores. This network spans across 18 states and 5 union territories.",
+            "recommended_title_length": 52,
+            "meta_description_length": 144
+        },
+        "top_services": [
+            {
+                "service_name": "Retail Ice Cream Sales",
+                "description": "Wide variety of packaged ice creams including tubs, cones, cups, and candies available across retail outlets.",
+                "target_industry": "FMCG / Retail",
+                "target_customer": "General consumers and families",
+                "main_benefit": "Instant access to high-quality, delicious desserts.",
+                "source": "website"
+            },
+            {
+                "service_name": "Party Orders and Event Catering",
+                "description": "Customized ice cream supply and catering solutions for weddings, birthdays, and large gatherings.",
+                "target_industry": "Hospitality / Events",
+                "target_customer": "Event hosts and planners",
+                "main_benefit": "Adds delightful dessert experiences to celebrations of all sizes.",
+                "source": "website"
+            },
+            {
+                "service_name": "Institutional Supply",
+                "description": "Supplying premium ice cream products to esteemed hotels, restaurants, and educational institutes.",
+                "target_industry": "Hospitality / HoReCa",
+                "target_customer": "Hotels, restaurants, and cafes",
+                "main_benefit": "Reliable bulk delivery meeting stringent global quality standards.",
+                "source": "website"
+            },
+            {
+                "service_name": "Flagship Parlour Experience",
+                "description": "Dedicated Havfunn parlours offering unique sundaes, shakes, and scoops in a sit-down environment.",
+                "target_industry": "Food & Beverage Retail",
+                "target_customer": "Ice cream enthusiasts and youth",
+                "main_benefit": "An immersive brand experience with specialized menu creations.",
+                "source": "website"
+            },
+            {
+                "service_name": "Franchise Partnership",
+                "description": "Business opportunities for entrepreneurs to open and operate Havmor retail stores and parlours.",
+                "target_industry": "Retail Business",
+                "target_customer": "Investors and business owners",
+                "main_benefit": "Partner with an established legacy brand backed by global expertise.",
+                "source": "inferred"
+            }
+        ],
+        "target_audience": {
+            "primary_audience": [
+                "Ice cream lovers",
+                "Families",
+                "Children and youth",
+                "Event hosts"
+            ],
+            "secondary_audience": [
+                "Hotel and restaurant procurement managers",
+                "Retail franchise investors",
+                "Party planners"
+            ],
+            "industries": [
+                "FMCG",
+                "Hospitality",
+                "Events & Catering",
+                "Food & Beverage Retail"
+            ],
+            "business_types": [
+                "Retail Stores",
+                "Hotels and Resorts",
+                "Cafes",
+                "Event Management Companies"
+            ],
+            "customer_profiles": [
+                {
+                    "profile": "The Family Shopper",
+                    "description": "Purchases multi-packs, tubs, and cakes for home consumption and family treats."
+                },
+                {
+                    "profile": "The Event Host",
+                    "description": "Seeks bulk catering and party orders to impress guests at weddings and celebrations."
+                }
+            ],
+            "geographic_focus": [
+                "India"
+            ],
+            "geographic_focus_source": "website",
+            "customer_needs": [
+                "High-quality, hygienic ice cream products",
+                "Wide variety of traditional and modern flavours",
+                "Reliable bulk supply for events"
+            ],
+            "customer_challenges": [
+                "Finding consistent dessert quality for large events",
+                "Accessing favorite flavours close to home"
+            ],
+            "customer_interests": [
+                "Desserts and sweets",
+                "Family celebrations",
+                "Food innovations"
+            ],
+            "recommended_segments": [
+                {
+                    "audience": "Families",
+                    "business_type": "B2C Retail",
+                    "requirement": "Diverse flavor options for home consumption",
+                    "recommended_channels": [
+                        "Instagram",
+                        "Facebook",
+                        "Google"
+                    ]
+                },
+                {
+                    "audience": "Event Planners",
+                    "business_type": "B2B Events",
+                    "requirement": "Bulk party orders and reliable delivery",
+                    "recommended_channels": [
+                        "Google",
+                        "Facebook"
+                    ]
+                },
+                {
+                    "audience": "Hospitality Buyers",
+                    "business_type": "HoReCa",
+                    "requirement": "Consistent high-grade ice cream supply for hotels",
+                    "recommended_channels": [
+                        "LinkedIn",
+                        "Google"
+                    ]
+                },
+                {
+                    "audience": "Entrepreneurs",
+                    "business_type": "Franchising",
+                    "requirement": "Profitable retail business partnership opportunities",
+                    "recommended_channels": [
+                        "LinkedIn",
+                        "Google"
+                    ]
+                }
+            ]
+        }
+    },
+    "data_notes": [
+        "Brand, services, SEO and audience insights were generated by gemini-3.5-flash-lite from content extracted from 3 page(s) of the website.",
+        "Competitors are AI-generated suggestions based on the model's general knowledge (source 'ai_suggestion'); they are not taken from live market research and should be verified. Competitors named on the website itself are labelled 'mentioned_on_website'.",
+        "meta.estimated_cost_usd is the paid-tier equivalent cost; this deployment uses the Gemini free tier, so the actual charge is $0.",
+        "Search queries are AI suggestions based on the website content. No search volume, ranking or traffic figures are reported because no search-volume data source is connected.",
+        "Services labelled 'inferred' are recommendations, not explicitly offered on the website: Franchise Partnership."
+    ],
+    "meta": {
+        "provider": "Google Gemini",
+        "model": "gemini-3.5-flash-lite",
+        "pages_analyzed": [
+            "https://www.havmor.com/",
+            "https://www.havmor.com/about-us",
+            "https://www.havmor.com/all-products"
+        ],
+        "content_characters": 6327,
+        "input_tokens": 2242,
+        "output_tokens": 3087,
+        "estimated_cost_usd": 0.00839,
+        "fetch_seconds": 0.85,
+        "llm_seconds": 9.51,
+        "total_seconds": 10.36,
+        "cached": false,
+        "analyzed_at": "2026-11-20T09:38:02+00:00"
+    }
+}

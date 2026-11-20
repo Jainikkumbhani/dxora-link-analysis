@@ -1,0 +1,19 @@
+2026-11-20 15:07:51,851 INFO app: Started: LLM gemini-3.5-flash-lite (fallback gemini-3.8-flash), configured=True
+INFO:     127.0.0.1:64831 - "GET /health HTTP/1.1" 200 OK
+2026-11-20 15:07:52,127 INFO app: Analysis requested for https://www.havmor.com/
+2026-11-20 15:07:52,974 INFO app.services.website_extractor: Extracted https://www.havmor.com/: 3 page(s), 1013 words
+2026-11-20 15:08:02,485 INFO app.services.llm_service: Gemini gemini-3.5-flash-lite: 9.5s, input=2242 output=3087 tokens
+INFO:     127.0.0.1:64833 - "POST /link-analysis HTTP/1.1" 200 OK
+2026-11-20 15:08:02,538 INFO app: Analysis requested for https://www.havmor.com/
+2026-11-20 15:08:02,538 INFO app.services.analysis_service: Cache hit for https://www.havmor.com/
+INFO:     127.0.0.1:65328 - "POST /link-analysis HTTP/1.1" 200 OK
+2026-11-20 15:08:02,560 INFO app: POST /link-analysis -> blocked_url: URL points to a private or internal network address.
+INFO:     127.0.0.1:65330 - "POST /link-analysis HTTP/1.1" 400 Bad Request
+2026-11-20 15:08:02,567 INFO app: Analysis requested for https://www.infosys.com/
+2026-11-20 15:08:02,938 WARNING app: POST /link-analysis -> website_unreachable: Website returned HTTP 403 (the website blocks automated access).
+INFO:     127.0.0.1:65333 - "POST /link-analysis HTTP/1.1" 502 Bad Gateway
+2026-11-20 15:08:02,945 INFO app: POST /link-analysis -> invalid_url: URL must not contain spaces.
+INFO:     127.0.0.1:65353 - "POST /link-analysis HTTP/1.1" 422 Unprocessable Entity
+2026-11-20 15:08:02,952 INFO app: Analysis requested for https://httpbin.org/image/png
+2026-11-20 15:08:04,059 INFO app: POST /link-analysis -> unsupported_content: URL does not point to an HTML web page (content type: image/png).
+INFO:     127.0.0.1:65355 - "POST /link-analysis HTTP/1.1" 422 Unprocessable Entity
