@@ -754,3 +754,23 @@ def test_default_models_are_free_tier():
     settings = Settings(_env_file=None)
     assert settings.gemini_model == "gemini-3.5-flash-lite"
     assert settings.gemini_fallback_model == "gemini-3.8-flash"
+
+
+def test_client_ip_prefers_cloudflare_headers(monkeypatch):
+    from starlette.requests import Request
+
+    from app import main
+
+    def request(headers):
+        raw = [(k.lower().encode(), v.encode()) for k, v in headers.items()]
+        return Request({"type": "http", "headers": raw, "client": ("10.0.0.9", 1234)})
+
+    monkeypatch.setattr(main.settings, "trust_proxy_headers", True)
+    assert main.client_ip(request({"True-Client-IP": "1.1.1.1", "X-Forwarded-For": "9.9.9.9"})) == (
+        "1.1.1.1"
+    )
+    assert main.client_ip(request({"CF-Connecting-IP": "2.2.2.2"})) == "2.2.2.2"
+    assert main.client_ip(request({"X-Forwarded-For": "3.3.3.3, 10.1.1.1"})) == "3.3.3.3"
+    assert main.client_ip(request({})) == "10.0.0.9"
+    monkeypatch.setattr(main.settings, "trust_proxy_headers", False)
+    assert main.client_ip(request({"True-Client-IP": "1.1.1.1"})) == "10.0.0.9"

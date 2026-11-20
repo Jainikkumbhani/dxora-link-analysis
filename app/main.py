@@ -75,11 +75,20 @@ def get_analysis_service(request: Request) -> AnalysisService:
 
 
 def client_ip(request: Request) -> str:
+    """Client IP used for rate limiting.
+
+    Behind Render, Cloudflare sets True-Client-IP / CF-Connecting-IP to the real client
+    address. X-Forwarded-For is only a fallback (Render appends to it, so the first entry
+    is the client but the header can be pre-filled by the caller).
+    """
     if settings.trust_proxy_headers:
+        for header in ("true-client-ip", "cf-connecting-ip"):
+            value = request.headers.get(header, "").strip()
+            if value:
+                return value
         forwarded = request.headers.get("x-forwarded-for")
         if forwarded:
-            # The last entry is added by the platform's proxy; earlier ones can be spoofed.
-            return forwarded.split(",")[-1].strip()
+            return forwarded.split(",")[0].strip()
     return request.client.host if request.client else "unknown"
 
 

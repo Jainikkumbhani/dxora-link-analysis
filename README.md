@@ -8,7 +8,9 @@ search queries**, **SEO improvements**, **top 5 services** and **target audience
 |---|---|
 | Endpoint | `POST /link-analysis` |
 | Local | `http://localhost:4000/link-analysis` · docs `http://localhost:4000/docs` |
-| Live demo | <!--LIVE_URL-->_deployment in progress_<!--/LIVE_URL--> |
+| **Live demo** | **https://dxora-link-analysis-s0b4.onrender.com** |
+| **Live API endpoint** | `POST https://dxora-link-analysis-s0b4.onrender.com/link-analysis` |
+| **Live API docs** | **https://dxora-link-analysis-s0b4.onrender.com/docs** |
 | Stack | Python 3.9+, FastAPI, Uvicorn, Pydantic v2, HTTPX, BeautifulSoup, Gemini API |
 
 ---
@@ -65,7 +67,7 @@ dxora-link-analysis/
 │       ├── validators.py           # URL validation, public-IP checks
 │       └── cache.py                # TTL cache + rate limiter
 ├── tests/
-│   └── test_link_analysis.py       # 56 tests, websites/DNS/Gemini mocked
+│   └── test_link_analysis.py       # 57 tests, websites/DNS/Gemini mocked
 ├── docs/                           # Real sample response, server log, screenshots
 ├── render.yaml                     # Render deployment blueprint
 ├── .env.example
@@ -382,7 +384,9 @@ Real examples:
 - **Resource limits** - connect/read timeouts, 3 MB page cap (streamed, truncated), HTML only.
 - **Secrets** - API key only from environment variables (`SecretStr`), sent in a header (never
   in URLs or logs); `.env` is git-ignored.
-- **Abuse / cost protection** - per-IP rate limit, response cache, token budget.
+- **Abuse / cost protection** - per-IP rate limit (behind Render the client IP comes from
+  Cloudflare's `True-Client-IP` / `CF-Connecting-IP`, not the spoofable `X-Forwarded-For`),
+  response cache, token budget.
 - **Prompt-injection hygiene** - website text is passed as delimited data; the output must match
   a strict schema and is validated before it is returned.
 
@@ -507,7 +511,7 @@ pip install pytest
 pytest -q
 ```
 
-56 tests, no network or API key needed (websites, DNS and Gemini are simulated with
+57 tests, no network or API key needed (websites, DNS and Gemini are simulated with
 `httpx.MockTransport`). Covered:
 
 - URL validation and SSRF: private/loopback/metadata/IPv6/mapped addresses, ports, DNS
@@ -521,7 +525,7 @@ pytest -q
   overloaded -> 503, quota on all models, invalid key (not leaked), schema rejected -> prompt schema, timeout, missing key;
 - post-processing: competitor de-duplication / brand removal / labels, comparison table,
   platform aliases (`Twitter` -> `X`), cost calculation;
-- cache, rate limit, health, 404/405 JSON errors.
+- cache, rate limit, client-IP detection behind a proxy, health, 404/405 JSON errors.
 
 ---
 
@@ -536,6 +540,16 @@ pytest -q
    `uvicorn app.main:app --host 0.0.0.0 --port $PORT`; health check: `/health`.
 
 The free plan sleeps after inactivity, so the first request after a pause can take ~1 minute.
+
+**Deployed:** https://dxora-link-analysis-s0b4.onrender.com (free plan, `gemini-3.5-flash-lite`,
+rate limit 5 analyses per minute per client IP). Try it from `/docs` → `POST /link-analysis` →
+*Try it out*.
+
+```bash
+curl -X POST https://dxora-link-analysis-s0b4.onrender.com/link-analysis \
+  -H "Content-Type: application/json" \
+  -d '{"url": "https://basecamp.com"}'
+```
 
 ---
 
