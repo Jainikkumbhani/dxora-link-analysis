@@ -5,7 +5,8 @@ Docs: https://ai.google.dev/api/generate-content
 
 Features:
   * JSON mode + JSON Schema (``responseJsonSchema``) for structured output;
-  * one retry on 5xx, automatic fallback model on 429 / 404 / 5xx / timeout;
+  * temporary 503 on the primary model: one retry after a short pause, then the
+    fallback model; quota (429), missing model (404) or timeout: fallback directly;
   * if the API rejects optional settings (schema / thinking level) the call is
     repeated once without them, with the schema embedded in the prompt instead;
   * measured token usage (thinking tokens counted as billed output tokens).
@@ -111,12 +112,13 @@ class GeminiService:
         try:
             return await self._call(model, system, prompt, schema, optional=True)
         except _ModelUnavailable as exc:
-            # With a fallback model configured, switching models is faster than
-            # retrying an overloaded one; retry the same model only as last resort.
-            if "HTTP 404" in exc.message or model != self.models[-1]:
+            # "High demand" 503s on the primary model are usually short spikes, so the
+            # primary is retried once after a short pause before switching to the
+            # fallback model. Missing models (404) are never retried.
+            if "HTTP 404" in exc.message or model != self.models[0]:
                 raise
-            logger.info("Gemini %s server error, retrying once: %s", model, exc.message)
-            await asyncio.sleep(1.5)
+            logger.info("Gemini %s unavailable, retrying once: %s", model, exc.message)
+            await asyncio.sleep(self.settings.llm_retry_delay_seconds)
             return await self._call(model, system, prompt, schema, optional=True)
 
     async def _call(

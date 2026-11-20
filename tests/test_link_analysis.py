@@ -292,6 +292,7 @@ def make_settings(**overrides) -> Settings:
         gemini_fallback_model="gemini-3.5-flash-lite",
         max_extra_pages=2,
         rate_limit_per_minute=0,
+        llm_retry_delay_seconds=0,
     )
     values.update(overrides)
     return Settings(_env_file=None, **values)
@@ -645,12 +646,21 @@ def test_invalid_api_key_is_reported_without_leaking_it(make_client, world):
     assert len(world.gemini_requests()) == 1  # auth errors do not try the fallback
 
 
-def test_overloaded_model_switches_to_fallback_immediately(make_client, world):
+def test_overloaded_primary_is_retried_before_fallback(make_client, world):
     world.gemini = [httpx.Response(503, json={"error": {"message": "overloaded"}})]
     response = analyse(make_client())
     assert response.status_code == 200
     urls = [str(r.url) for r in world.gemini_requests()]
-    assert len(urls) == 2 and "gemini-3.5-flash-lite" in urls[1]
+    assert len(urls) == 2 and all("gemini-3.8-flash:" in u for u in urls)
+
+
+def test_primary_overloaded_twice_uses_fallback(make_client, world):
+    overloaded = httpx.Response(503, json={"error": {"message": "overloaded"}})
+    world.gemini = [overloaded, copy.deepcopy(overloaded)]
+    response = analyse(make_client())
+    assert response.status_code == 200
+    urls = [str(r.url) for r in world.gemini_requests()]
+    assert len(urls) == 3 and "gemini-3.5-flash-lite" in urls[2]
 
 
 def test_server_error_retried_once_without_fallback(make_client, world):

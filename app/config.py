@@ -36,6 +36,8 @@ class Settings(BaseSettings):
     llm_temperature: float = 0.4
     llm_max_output_tokens: int = 8192
     llm_timeout_seconds: float = 45.0
+    # Pause before retrying the primary model after a temporary 503.
+    llm_retry_delay_seconds: float = 2.0
 
     # --- Website fetching --------------------------------------------------------
     fetch_timeout_seconds: float = 15.0

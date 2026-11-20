@@ -11,7 +11,7 @@ search queries**, **SEO improvements**, **top 5 services** and **target audience
 | **Live demo** | **https://dxora-link-analysis-s0b4.onrender.com** |
 | **Live API endpoint** | `POST https://dxora-link-analysis-s0b4.onrender.com/link-analysis` |
 | **Live API docs** | **https://dxora-link-analysis-s0b4.onrender.com/docs** |
-| Stack | Python 3.9+, FastAPI, Uvicorn, Pydantic v2, HTTPX, BeautifulSoup, Gemini API |
+| Stack | Python 3.10+ (tested on 3.12), FastAPI, Uvicorn, Pydantic v2, HTTPX, BeautifulSoup, Gemini API |
 
 ---
 
@@ -67,7 +67,7 @@ dxora-link-analysis/
 │       ├── validators.py           # URL validation, public-IP checks
 │       └── cache.py                # TTL cache + rate limiter
 ├── tests/
-│   └── test_link_analysis.py       # 57 tests, websites/DNS/Gemini mocked
+│   └── test_link_analysis.py       # 58 tests, websites/DNS/Gemini mocked
 ├── docs/                           # Real sample response, server log, screenshots
 ├── render.yaml                     # Render deployment blueprint
 ├── .env.example
@@ -387,6 +387,8 @@ Real examples:
 - **Abuse / cost protection** - per-IP rate limit (behind Render the client IP comes from
   Cloudflare's `True-Client-IP` / `CF-Connecting-IP`, not the spoofable `X-Forwarded-For`),
   response cache, token budget.
+- **Dependencies** - exact versions pinned in `requirements.txt` and scanned with `pip-audit`:
+  no known vulnerabilities (2026-11-20).
 - **Prompt-injection hygiene** - website text is passed as delimited data; the output must match
   a strict schema and is validated before it is returned.
 
@@ -511,7 +513,7 @@ pip install pytest
 pytest -q
 ```
 
-57 tests, no network or API key needed (websites, DNS and Gemini are simulated with
+58 tests, no network or API key needed (websites, DNS and Gemini are simulated with
 `httpx.MockTransport`). Covered:
 
 - URL validation and SSRF: private/loopback/metadata/IPv6/mapped addresses, ports, DNS
@@ -521,8 +523,8 @@ pytest -q
 - HTML extraction: meta, Open Graph, JSON-LD, headings, nav, footer, social links, script /
   cookie-banner removal, de-duplication, choice of extra pages;
 - LLM: prompt contains real site content, JSON Schema sent, invalid output retried with
-  feedback, invalid twice -> 502, rate limit -> fallback model, overload -> fallback, all models
-  overloaded -> 503, quota on all models, invalid key (not leaked), schema rejected -> prompt schema, timeout, missing key;
+  feedback, invalid twice -> 502, rate limit -> fallback model, overload -> primary retried
+  then fallback, all models overloaded -> 503, quota on all models, invalid key (not leaked), schema rejected -> prompt schema, timeout, missing key;
 - post-processing: competitor de-duplication / brand removal / labels, comparison table,
   platform aliases (`Twitter` -> `X`), cost calculation;
 - cache, rate limit, client-IP detection behind a proxy, health, 404/405 JSON errors.
@@ -555,6 +557,9 @@ curl -X POST https://dxora-link-analysis-s0b4.onrender.com/link-analysis \
 
 ## 9. Design decisions and assumptions
 
+- **Retry strategy** - a temporary 503 ("high demand") on the primary model is retried once after
+  2 s before switching to the fallback model, because such spikes are short (seen in testing);
+  quota errors (429) and timeouts switch to the fallback immediately.
 - **One LLM call for all five sections** - shared context, consistent output, one input-token
   charge instead of five.
 - **REST API via HTTPX instead of an SDK** - fewer dependencies, full control over timeouts,
